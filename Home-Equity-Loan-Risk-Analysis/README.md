@@ -1,7 +1,7 @@
 # 📊 Loan Default & Risk Prediction Using Machine Learning (R)  
 
 ## 🚀 Project Overview  
-This project was conducted over 8 weeks as part of my studies at Trine University, focusing on loan default risk modeling using Machine Learning in R. Throughout this period, I explored data preprocessing, feature engineering, decision trees, ensemble models, and model evaluation** to develop a predictive risk assessment tool for home equity loans.  
+This project was conducted over 8 weeks as part of my studies at Trine University, focusing on loan default risk modeling using Machine Learning in R. Throughout this period, I explored data preprocessing, feature engineering, decision trees, ensemble models, and model evaluation to develop a predictive risk assessment tool for home equity loans.  
 
 ## 📊 Dataset Details  
 - **HMEQ_Loss.csv** → Raw dataset with **5,960 records & 14 variables** (loan info, credit risk, financial history).  
