@@ -2,7 +2,7 @@
 
 ### Professional Summary
  - Data Scientist with 3+ years of experience in machine learning, predictive analytics, and automation, specializing in fraud detection, time-series forecasting, and process optimization. Passionate about solving complex problems with data-driven insights.
- - Proficient in Python, R, SQL, SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
+ - Proficient in Python, R, SQL, and SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
 
 ### SKILLS
  - Programming Language: R, Python, SQL, SAS
