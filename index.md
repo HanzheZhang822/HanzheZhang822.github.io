@@ -33,11 +33,11 @@ Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
 
 ### Projects
 Project 1: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
- - Improved attrition prediction accuracy to 88.9% by analyzing 1,470 employee records, optimizing HR decision-making.
- - Processed 35 features via data cleaning, encoding, and scaling, reducing model training time by 30%.
- - Identified top 5 attrition factors (age, salary, job satisfaction, work-life balance, and commute distance) using feature importance analysis.
- - Enhanced model performance by 12% by fine-tuning Logistic Regression, KNN, and Random Forest, selecting optimal hyperparameters.
- - Provided HR retention insights by correlating employee roles, work conditions, and salary trends.
+ - Increased employee attrition prediction accuracy to 88.9% by analyzing 1,470 employee records, leveraging Logistic Regression, KNN, and Random Forest models.
+ - Reduced model training time by 30% by preprocessing 35 features, including binary encoding, one-hot encoding, and feature scaling.
+ - Identified top 5 attrition drivers (Age, MonthlyIncome, JobSatisfaction, WorkLifeBalance, CommuteDistance) using feature importance analysis, guiding HR retention strategies.
+ - Improved model performance by 12% through hyperparameter tuning (GridSearchCV), optimizing decision thresholds for attrition prediction.
+ - Provided HR retention insights by analyzing job roles, salary trends, and work conditions, enabling data-driven workforce planning.
 
 Project 2: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
  - Increased customer insights for marketing strategy by analyzing 2,833+ Amazon reviews from iRobot Roomba & iLife V5s Pro, using web scraping (rvest, RCurl) to extract and preprocess customer feedback.
@@ -53,7 +53,7 @@ Project 3: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang82
  - Reduced RMSE by 20% in loss prediction by implementing Decision Trees, Poisson Regression, and Random Forest models, optimizing loan risk assessment for financial institutions.
  - Enhanced feature engineering by applying PCA and t-SNE, reducing data dimensionality by 40%, improving model interpretability, and clustering borrowers into five risk segments based on financial behavior.
  - Designed an end-to-end Probability/Severity risk model, integrating logistic regression and regression trees to quantify both default risk and financial impact, aiding in credit risk decision-making.
- - Automated the entire modeling workflow, making the project fully reproducible and scalable, reducing manual effort in financial risk assessments.
+ - Automated the entire modeling workflow, making the project fully reproducible and scalable, reducing manual effort in financial risk assessments.s.
 
 ### Education
  - M.S., Information Studies | Trine University (01/2024 – 12/2025)
