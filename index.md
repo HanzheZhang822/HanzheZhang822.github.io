@@ -30,9 +30,8 @@ Data Analyst @ Web Union Solution  (10/2020 - 08/2022)
  - Developed an interactive Tableau dashboard used by 50+ daily users, providing real-time insights into fraud patterns, geographic trends, and financial risks, improving operational decision-making.
 
 Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
- - Boosted campaign ROI by 12% by segmenting 85K+ customers with K-Means clustering in Python.
+ - Boosted campaign ROI by 12% by segmenting 15K+ customers with K-Means clustering in Python.
  - Reduced manual reporting time by 8 hours per month by automating campaign performance reporting in Python, streamlining marketing analytics.
- - Enabled data-driven marketing decisions by building SQL-driven dashboards to track customer engagement trends.
 
 ### Projects
 Project 1: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
