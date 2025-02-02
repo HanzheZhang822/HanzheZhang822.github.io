@@ -1,0 +1,659 @@
+---
+title: "MARKETING ANALYTICS for iRobot Roomba 650 for Pets"
+author: "Hanzhe Zhang"
+output:
+  html_document: default
+  pdf_document: default
+always_allow_html: yes
+---
+# Step 1
+
+```{r}
+#Set seed
+set.seed(2600)
+
+# Install pacman. 
+if(!"pacman" %in% installed.packages()[,"Package"]) install.packages("pacman")
+
+# Install and load the required packages. 
+pacman::p_load(rvest, dplyr, tidyr, stringr, DT, RCurl, XML, purrr)
+```
+# Scraping reviews of iLife V5s
+# Pruduct page of iLife V5s
+# https://www.amazon.com/ILIFE-Automatically-Sweeping-Scrubbing-Cleaning/dp/B0BG6YVCK9?th=1
+# Amazon Product Code is B06X1F3HXG 
+```{r}
+prod_code <- "B06X1F3HXG"
+```
+
+```{r}
+# Start by getting the product information using the URL
+url <- paste0("https://www.amazon.com/dp/", prod_code)
+doc <- read_html(url)
+
+# Obtain the text in the node, remove "\n", remove white spaces from the text
+prod <- html_nodes(doc, "#productTitle") %>% html_text() %>% gsub("\n", "", .) %>% trimws()
+prod
+```
+
+```{r}
+# Scrape elements from Amazon reviews
+scrape_amazon <- function(url, throttle = 0){
+  
+  # Install / Load relevant packages 
+  
+  if(!"pacman" %in% installed.packages()[,"Package"]) install.packages("pacman")
+  pacman::p_load(RCurl, XML, dplyr, stringr, rvest, purrr)
+  
+  # Set throttle between URL calls
+  sec = 0
+  if(throttle < 0) warning("throttle was less than 0: set to 0")
+  if(throttle > 0) sec = max(0, throttle + runif(1, -1, 1))
+  
+  # obtain HTML of URL
+  doc <- read_html(url)
+  
+  # Parse relevant elements from HTML, you can add more if needed
+  title <- doc %>%
+    html_nodes("#cm_cr-review_list .a-color-base") %>%
+    html_text() %>% gsub("\n", "", .) %>% trimws()
+  
+  author <- doc %>%
+    html_nodes("#cm_cr-review_list .a-profile-name") %>%
+    html_text() 
+  
+  date <- doc %>%
+    html_nodes("#cm_cr-review_list .review-date") %>%
+    html_text() %>% gsub(".*on ", "", .)
+  
+  review_format <- doc %>% 
+    html_nodes(".review-format-strip") %>% html_text()                  
+  
+  stars <- doc %>%
+    html_nodes("#cm_cr-review_list  .review-rating") %>%
+    html_text() %>% str_extract("\\d") %>% as.numeric() 
+  
+  comments <- doc %>%
+    html_nodes("#cm_cr-review_list .review-text") %>%
+    html_text() %>% gsub("\n", "", .) %>% trimws()
+  
+  suppressWarnings(n_helpful <- doc %>%
+                     html_nodes(".a-expander-inline-container") %>%
+                     html_text() %>%
+                     gsub("\n\n \\s*|found this helpful.*", "", .) %>%
+                     gsub("One", "1", .) %>%
+                     map_chr(~ str_split(string = .x, pattern = " ")[[1]][1]) %>%
+                     as.numeric())
+  
+  # Combine attributes into a single data frame
+  dfiLIFE <- data.frame(title, author, date, review_format, stars, comments, n_helpful, stringsAsFactors = F)
+  
+  return(dfiLIFE)
+}
+
+#Do a test run, get the first page of reviews for a test and see if we succeed.
+urltesting<- "http://www.amazon.com/product-reviews/B06X1F3HXG/?pageNumber=1"
+reviewstesting <- scrape_amazon(urltesting)
+str(reviewstesting)
+
+# set appropriate number of pages
+pages <- 100
+
+# reviews_iLIFE will store all our reviews extracted, start with null 
+reviews_iLIFE <- NULL
+
+# loop through the pages
+for(page_num in 1:pages){ 
+  
+  url <- paste0("http://www.amazon.com/product-reviews/",prod_code,"/?pageNumber=", page_num)
+  reviews <- scrape_amazon(url, throttle = 2)
+  reviews_iLIFE <- rbind(reviews_iLIFE, cbind(prod, reviews))
+}
+
+#examine the structure of the reviews extracted 
+str(reviews_iLIFE)
+
+# save the reviews collected as a csv file
+write.csv(reviews_iLIFE, file=" B06X1F3HXG_Reviews.csv")
+```
+
+# Sentence sentiment analysis for iLife V5s
+```{r}
+# Install and load the required packages. 
+pacman::p_load(tidyr, dplyr, stringr, data.table, sentimentr, ggplot2)
+
+# load the data
+reviews_iLIFE = read.csv(file.choose(), stringsAsFactors = F)
+
+# create a rowid for the reviews
+review_dfiLIFE <- reviews_iLIFE %>% mutate(id = row_number())
+
+# examine the structure 
+str(review_dfiLIFE)
+
+# define the lexicon and any changes needed for our context
+# get n rows – to see what we have in the lexicon – 
+# Tyler Rinker is the author of sentimentr
+nrow(lexicon::hash_sentiment_jockers_rinker) 
+
+# words appearing in product title to replace.
+replace_in_lexicon1 <- tribble(
+  ~x, ~y,
+  "ILIFE", 0,       
+  "Pro", 0,      
+  "Robot", 0,          
+  "Mop", 0,
+  "Cleaner", 0,
+  "Water", 0,
+  "Tank", 0,
+  "Automatically", 0,
+  "Sweeping", 0,
+  "Scrubbing", 0,
+  "floor", 0,
+  "cleaning", 0,
+)
+# create a new lexicon with modified sentiment
+review_lexicon1 <- lexicon::hash_sentiment_jockers_rinker %>%
+  filter(!x %in% replace_in_lexicon1$x) %>%
+  bind_rows(replace_in_lexicon1) %>%
+  setDT() %>%
+  setkey("x")
+
+# start by getting the sentence level sentiment for testing 
+# get sentence-level sentiment
+sent_dfiLIFE <- review_dfiLIFE %>%
+  get_sentences() %>%
+  sentiment_by(by = c('id', 'author', 'date', 'stars', 'review_format'),  polarity_dt = review_lexicon1)
+
+# start by getting the sentence level sentiment for testing 
+# check the relationship between star rating and sentiment
+ggplot(sent_dfiLIFE, aes(x = stars, y = ave_sentiment, color = factor(stars), group = stars)) +
+  geom_boxplot() +
+  geom_hline(yintercept=0, linetype="dashed", color = "red") +
+  geom_text(aes(5.2, -0.05, label = "Neutral Sentiment", vjust = 0), size = 3, color = "red") +
+  guides(color = guide_legend(title="Star Rating")) +
+  ylab("Average Sentiment") +
+  xlab("Review Star Rating") +
+  ggtitle("Sentiment of iLIFE V5s Pro Reviews, by Star Rating") 
+```
+
+# Sentence sentiment analysis for iRobot Roomba 650 and 880
+```{r}
+# load the data
+reviews_iRobot = read.csv(file.choose(), stringsAsFactors = F)
+review_iRobot650 <- reviews_iRobot[which(reviews_iRobot$Product== 'iRobot Roomba 650 for Pets'), ]
+review_iRobot880 <- reviews_iRobot[which(reviews_iRobot$Product== 'iRobot Roomba 880 for Pets and Allergies'), ]
+# create a rowid for the reviews
+review_df650 <- review_iRobot650 %>% mutate(id = row_number())
+review_df880 <- review_iRobot880 %>% mutate(id = row_number())
+# examine the structure 
+str(review_df650)
+str(review_df880)
+# define the lexicon and any changes needed for our context
+# get n rows – to see what we have in the lexicon – 
+# Tyler Rinker is the author of sentimentr
+nrow(lexicon::hash_sentiment_jockers_rinker) 
+
+# words appearing in product title to replace.
+replace_in_lexicon2 <- tribble(
+  ~x, ~y,
+  "iRobot", 0,       
+  "Roomba", 0,      
+  "Pets", 0,          
+)
+# create a new lexicon with modified sentiment
+review_lexicon2 <- lexicon::hash_sentiment_jockers_rinker %>%
+  filter(!x %in% replace_in_lexicon2$x) %>%
+  bind_rows(replace_in_lexicon2) %>%
+  setDT() %>%
+  setkey("x")
+
+# start by getting the sentence level sentiment for testing 
+# get sentence-level sentiment
+sent_df650 <- review_df650 %>%
+  get_sentences() %>%
+  sentiment_by(by = c('id', 'Date', 'Stars'),  polarity_dt = review_lexicon2)
+
+sent_df880 <- review_df880 %>%
+  get_sentences() %>%
+  sentiment_by(by = c('id', 'Date', 'Stars'),  polarity_dt = review_lexicon2)
+```
+# start by getting the sentence level sentiment for testing 
+# check the relationship between star rating and sentiment
+# Sentiment of iRobot Roomba 650 Reviews, by Star Rating
+```{r}
+ggplot(sent_df650, aes(x = Stars, y = ave_sentiment, color = factor(Stars), group = Stars)) +
+  geom_boxplot() +
+  geom_hline(yintercept=0, linetype="dashed", color = "red") +
+  geom_text(aes(5.2, -0.05, label = "Neutral Sentiment", vjust = 0), size = 3, color = "red") +
+  guides(color = guide_legend(title="Star Rating")) +
+  ylab("Average Sentiment") +
+  xlab("Review Star Rating") +
+  ggtitle("Sentiment of iRobot Roomba 650 Reviews, by Star Rating")
+```
+
+# Sentiment of iRobot Roomba 880 Reviews, by Star Rating
+```{r}
+ggplot(sent_df880, aes(x = Stars, y = ave_sentiment, color = factor(Stars), group = Stars)) +
+  geom_boxplot() +
+  geom_hline(yintercept=0, linetype="dashed", color = "red") +
+  geom_text(aes(5.2, -0.05, label = "Neutral Sentiment", vjust = 0), size = 3, color = "red") +
+  guides(color = guide_legend(title="Star Rating")) +
+  ylab("Average Sentiment") +
+  xlab("Review Star Rating") +
+  ggtitle("Sentiment of iRobot Roomba 880 Reviews, by Star Rating") 
+
+```
+
+The plots that I got above are the sentence sentiment analysis for iLIFE V5s, iRobot Roomba 650 and iRobott Roomba 880. They shows the relation between review star rating and average sentiment of customers' comments. As the plots show, overall, positive reviews are related to higher star ratings and vice versa. However, for iLIFE V5s, the average sentiment of 2 stars rating is lower than the average sentiment of 1 star rating, even lower than 0.
+
+# Step 2
+#Word Cloud for iLIFE V5s
+```{r}
+# Install and load the required packages. 
+pacman::p_load(dplyr, ggplot2, tidytext, wordcloud2)
+```
+
+```{r}
+names(reviews_iLIFE)
+# select only the comment.
+iLIFE<-reviews_iLIFE %>% select(comment = comments, X)
+glimpse(iLIFE)
+
+```
+
+```{r}
+# delete all undesirable words, here we only delete things that may bias analyses
+# adjust this list as you need it, basically eliminate all undesirable words
+undesirable_words_iLife <- c("iLIFE", "pro", "robot", "theres", "tank", "water", "cleaner", 
+                                   "wanna", "gonna", "what", "gotta", "make", 
+                                   "automatically", "sweeping", "vacuum", "scrubbing",
+                                   "then", "those", "when")
+
+# check out a small sample of stop words, randomly
+head(sample(stop_words$word, 15), 15)
+```
+
+```{r}
+# unnest the comment, remove all stop and undesirable words and words smaller than 3 characters and examine the result
+# unnest and remove stop, undesirable and short words
+iLIFE_words_filtered <- iLIFE%>%
+  unnest_tokens(word, comment) %>%
+  anti_join(stop_words) %>%
+  distinct() %>%
+  filter(!word %in% undesirable_words_iLife) %>%
+  filter(nchar(word) > 3)
+dim(iLIFE_words_filtered)
+```
+
+```{r}
+# get the full word count from the comment and quickly examine the results
+full_word_count_iLife <- iLIFE%>%
+  unnest_tokens(word, comment) %>%
+  group_by(X) %>%
+  summarise(num_words = n()) %>%
+  arrange(desc(num_words)) 
+
+# plot the most commonly used words in the comment
+iLIFE_words_filtered %>%
+  count(word, sort = TRUE) %>%
+  top_n(10) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot() +
+  geom_col(aes(word, n)) +
+  xlab("") + 
+  ylab("Count") +
+  ggtitle("Most Frequently Used Words in iLIFEcomment") +
+  coord_flip()
+
+# create a cool wordcloud of the words in the comment
+iLIFE_word_counts <- iLIFE_words_filtered %>% count(word, sort = TRUE) 
+wordcloud2(iLIFE_word_counts[1:300, ], size = .5)
+```
+
+#Word Cloud for iRobot Roomba 650
+
+```{r}
+#iRobot Roomba 650
+names(review_df650)
+# select only the comment and song titles from the data and examine it
+iRobot650<-review_df650 %>% select(comment = Review, X = id)
+glimpse(iRobot650)
+```
+
+```{r}
+# delete all undesirable words, here we only delete things that may bias analyses
+# adjust this list as you need it, basically eliminate all undesirable words
+undesirable_words_iRobot650 <- c("iRobot", "roomba", "robot", "theres",
+                                 "floor", "wanna", "gonna", "what", "gotta", "make", "vacuum",
+                                 "then", "those", "when", "him", "how", "whether", "as")
+
+# check out a small sample of stop words, randomly
+head(sample(stop_words$word, 15), 15)
+```
+
+```{r}
+# unnest the comment, remove all stop and undesirable words and words smaller than 3 characters and examine the result
+# unnest and remove stop, undesirable and short words
+iRobot650_words_filtered <- iRobot650%>%
+  unnest_tokens(word, comment) %>%
+  anti_join(stop_words) %>%
+  distinct() %>%
+  filter(!word %in% undesirable_words_iRobot650) %>%
+  filter(nchar(word) > 3)
+dim(iRobot650_words_filtered)
+```
+
+```{r}
+# get the full word count from the comment and quickly examine the results
+full_word_count_iRobot650 <- iRobot650%>%
+  unnest_tokens(word, comment) %>%
+  group_by(X) %>%
+  summarise(num_words = n()) %>%
+  arrange(desc(num_words)) 
+
+# plot the most commonly used words in the comment
+iRobot650_words_filtered %>%
+  count(word, sort = TRUE) %>%
+  top_n(10) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot() +
+  geom_col(aes(word, n)) +
+  xlab("") + 
+  ylab("Count") +
+  ggtitle("Most Frequently Used Words in iRobot650comment") +
+  coord_flip()
+
+# create a cool wordcloud of the words in the comment
+iRobot650_word_counts <- iRobot650_words_filtered %>% count(word, sort = TRUE) 
+wordcloud2(iRobot650_word_counts[1:300, ], size = .5)
+```
+
+#Word Cloud for iRobot Roomba 880
+
+```{r}
+#iRobot Roomba 880
+names(review_df880)
+# select only the comment and song titles from the data and examine it
+iRobot880<-review_df880 %>% select(comment = Review, X = id)
+glimpse(iRobot880)
+```
+
+```{r}
+# delete all undesirable words, here we only delete things that may bias analyses
+# adjust this list as you need it, basically eliminate all undesirable words
+undesirable_words_iRobot880 <- c("iRobot", "roomba", "robot", "theres",
+                                 "floor", "wanna", "gonna", "what", "gotta", "make", "vacuum",
+                                 "then", "those", "when", "him", "how", "whether", "as")
+
+# check out a small sample of stop words, randomly
+head(sample(stop_words$word, 15), 15)
+```
+
+```{r}
+# unnest the comment, remove all stop and undesirable words and words smaller than 3 characters and examine the result
+# unnest and remove stop, undesirable and short words
+iRobot880_words_filtered <- iRobot880%>%
+  unnest_tokens(word, comment) %>%
+  anti_join(stop_words) %>%
+  distinct() %>%
+  filter(!word %in% undesirable_words_iRobot880) %>%
+  filter(nchar(word) > 3)
+dim(iRobot880_words_filtered)
+```
+
+```{r}
+# get the full word count from the comment and quickly examine the results
+full_word_count_iRobot880 <- iRobot880%>%
+  unnest_tokens(word, comment) %>%
+  group_by(X) %>%
+  summarise(num_words = n()) %>%
+  arrange(desc(num_words)) 
+
+# plot the most commonly used words in the comment
+iRobot880_words_filtered %>%
+  count(word, sort = TRUE) %>%
+  top_n(10) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot() +
+  geom_col(aes(word, n)) +
+  xlab("") + 
+  ylab("Count") +
+  ggtitle("Most Frequently Used Words in iRobot880comment") +
+  coord_flip()
+
+# create a cool wordcloud of the words in the comment
+iRobot880_word_counts <- iRobot880_words_filtered %>% count(word, sort = TRUE) 
+wordcloud2(iRobot880_word_counts[1:300, ], size = .5)
+```
+
+The plots that I got above are word cloud for these three products. They shows the frequency of words appearing in customers' reviews. As we can see, words appearing most frequently are basically positive, such as clean, love, recommend. There are also some difference among them. The word "price" appeared a lot in the reviews of iLIFE, which reflected that it is cheaper than other robot vacuum including iRobot 650 and 880. And the word " dog" and "pet" appeared more in the reviews of iRobot 650 and 880 because their main characteristic which is mentioned in their title is for pet.
+
+
+# Step 3
+```{r}
+# Install and load the required packages. 
+pacman::p_load(dplyr, ggplot2, stringr, udpipe, lattice)
+```
+
+#iLIFE V5s
+```{r}
+head(reviews_iLIFE)
+
+udmodel_english <- udpipe_load_model(file = "english-ewt-ud-2.3-181115.udpipe")
+
+reviews_iLIFE %>% group_by(date) %>% count() %>% arrange(desc(n))
+
+reviews_iLIFE %>% group_by(date) %>% count() %>% ggplot() + geom_line(aes(date,n, group = 1))
+
+
+s <- udpipe_annotate(udmodel_english, reviews_iLIFE$title)
+x <- data.frame(s)
+
+stats <- txt_freq(x$upos)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = stats, col = "yellow", 
+         main = "UPOS (Universal Parts of Speech)\n frequency of occurrence", 
+         xlab = "Freq")
+
+## NOUNS
+stats <- subset(x, upos %in% c("NOUN")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "cadetblue", 
+         main = "Most occurring nouns", xlab = "Freq")
+
+## ADJECTIVES
+stats <- subset(x, upos %in% c("ADJ")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "purple", 
+         main = "Most occurring adjectives", xlab = "Freq")
+
+## VERBS
+stats <- subset(x, upos %in% c("VERB")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "gold", 
+         main = "Most occurring Verbs", xlab = "Freq")
+
+## RAKE
+stats <- keywords_rake(x = x, term = "lemma", group = "doc_id", 
+                       relevant = x$upos %in% c("NOUN", "ADJ"))
+stats$key <- factor(stats$keyword, levels = rev(stats$keyword))
+barchart(key ~ rake, data = head(subset(stats, freq > 3), 20), col = "red", 
+         main = "Keywords identified by RAKE", 
+         xlab = "Rake")
+
+## display by plot a sequence of POS tags (noun phrases / verb phrases)
+x$phrase_tag <- as_phrasemachine(x$upos, type = "upos")
+stats <- keywords_phrases(x = x$phrase_tag, term = tolower(x$token), 
+                          pattern = "(A|N)*N(P+D*(A|N)*N)*", 
+                          is_regex = TRUE, detailed = FALSE)
+stats <- subset(stats, ngram > 1 & freq > 3)
+stats$key <- factor(stats$keyword, levels = rev(stats$keyword))
+barchart(key ~ freq, data = head(stats, 20), col = "magenta", 
+         main = "Keywords - simple noun phrases", xlab = "Frequency")
+```
+
+#iRobot Roomba 650
+```{r}
+head(review_df650)
+
+udmodel_english <- udpipe_load_model(file = "english-ewt-ud-2.3-181115.udpipe")
+
+review_df650 %>% group_by(Date) %>% count() %>% arrange(desc(n))
+
+review_df650 %>% group_by(Date) %>% count() %>% ggplot() + geom_line(aes(Date,n, group = 1))
+
+
+s <- udpipe_annotate(udmodel_english, review_df650$Title)
+x <- data.frame(s)
+
+stats <- txt_freq(x$upos)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = stats, col = "yellow", 
+         main = "UPOS (Universal Parts of Speech)\n frequency of occurrence", 
+         xlab = "Freq")
+
+## NOUNS
+stats <- subset(x, upos %in% c("NOUN")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "cadetblue", 
+         main = "Most occurring nouns", xlab = "Freq")
+
+## ADJECTIVES
+stats <- subset(x, upos %in% c("ADJ")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "purple", 
+         main = "Most occurring adjectives", xlab = "Freq")
+
+## VERBS
+stats <- subset(x, upos %in% c("VERB")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "gold", 
+         main = "Most occurring Verbs", xlab = "Freq")
+
+## RAKE
+stats <- keywords_rake(x = x, term = "lemma", group = "doc_id", 
+                       relevant = x$upos %in% c("NOUN", "ADJ"))
+stats$key <- factor(stats$keyword, levels = rev(stats$keyword))
+barchart(key ~ rake, data = head(subset(stats, freq > 3), 20), col = "red", 
+         main = "Keywords identified by RAKE", 
+         xlab = "Rake")
+
+## display by plot a sequence of POS tags (noun phrases / verb phrases)
+x$phrase_tag <- as_phrasemachine(x$upos, type = "upos")
+stats <- keywords_phrases(x = x$phrase_tag, term = tolower(x$token), 
+                          pattern = "(A|N)*N(P+D*(A|N)*N)*", 
+                          is_regex = TRUE, detailed = FALSE)
+stats <- subset(stats, ngram > 1 & freq > 3)
+stats$key <- factor(stats$keyword, levels = rev(stats$keyword))
+barchart(key ~ freq, data = head(stats, 20), col = "magenta", 
+         main = "Keywords - simple noun phrases", xlab = "Frequency")
+```
+
+#iRobot Roomba 880
+```{r}
+head(review_df880)
+
+udmodel_english <- udpipe_load_model(file = "english-ewt-ud-2.3-181115.udpipe")
+
+review_df880 %>% group_by(Date) %>% count() %>% arrange(desc(n))
+
+review_df880 %>% group_by(Date) %>% count() %>% ggplot() + geom_line(aes(Date,n, group = 1))
+
+
+s <- udpipe_annotate(udmodel_english, review_df880$Title)
+x <- data.frame(s)
+
+stats <- txt_freq(x$upos)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = stats, col = "yellow", 
+         main = "UPOS (Universal Parts of Speech)\n frequency of occurrence", 
+         xlab = "Freq")
+
+## NOUNS
+stats <- subset(x, upos %in% c("NOUN")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "cadetblue", 
+         main = "Most occurring nouns", xlab = "Freq")
+
+## ADJECTIVES
+stats <- subset(x, upos %in% c("ADJ")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "purple", 
+         main = "Most occurring adjectives", xlab = "Freq")
+
+## VERBS
+stats <- subset(x, upos %in% c("VERB")) 
+stats <- txt_freq(stats$token)
+stats$key <- factor(stats$key, levels = rev(stats$key))
+barchart(key ~ freq, data = head(stats, 20), col = "gold", 
+         main = "Most occurring Verbs", xlab = "Freq")
+
+## RAKE
+stats <- keywords_rake(x = x, term = "lemma", group = "doc_id", 
+                       relevant = x$upos %in% c("NOUN", "ADJ"))
+stats$key <- factor(stats$keyword, levels = rev(stats$keyword))
+barchart(key ~ rake, data = head(subset(stats, freq > 3), 20), col = "red", 
+         main = "Keywords identified by RAKE", 
+         xlab = "Rake")
+
+## display by plot a sequence of POS tags (noun phrases / verb phrases)
+x$phrase_tag <- as_phrasemachine(x$upos, type = "upos")
+stats <- keywords_phrases(x = x$phrase_tag, term = tolower(x$token), 
+                          pattern = "(A|N)*N(P+D*(A|N)*N)*", 
+                          is_regex = TRUE, detailed = FALSE)
+stats <- subset(stats, ngram > 1 & freq > 3)
+stats$key <- factor(stats$keyword, levels = rev(stats$keyword))
+barchart(key ~ freq, data = head(stats, 20), col = "magenta", 
+         main = "Keywords - simple noun phrases", xlab = "Frequency")
+
+```
+The plots that I got above are the analysis of verbs, nouns, noun verb and parts of speech in customers' reviews for these three products. Because the rating of them is quite good, verbs, nouns and noun phreses that appear most frequently are similar. However, in keywords identified by RAKE, there are some difference. For iLIFE V5s, "great value" and "best purchase" appear a lot because of its lower price, and "pet hair""pet owner" appear a lot for iRobot because of their product charactoristic. 
+
+# Step 4
+
+```{r}
+library(animation)
+library(ggplot2)
+library(dplyr)
+df <- read.csv (file.choose())
+subscribermodel <- select(df, -CustomerID)
+summary(subscribermodel)
+
+# Rescale the numerical items for clustering
+rescale_subscribermodel <-subscribermodel %>%  mutate(recency_scaled = scale(Recency), frequency_scaled = scale(Frequency),monetary_scaled = scale(MonetaryValue))
+
+# omit the data that is missing
+rescale_subscribermodel <- na.omit(rescale_subscribermodel)
+
+# Set a seed and then use ELbow Method to identify the number of cluster
+set.seed(2600)
+k.max <- 15
+data <- rescale_subscribermodel
+wss <- sapply(1:k.max, 
+              function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
+wss
+plot(1:k.max, wss,
+     type="b", pch = 19, frame = FALSE, 
+     xlab="Number of clusters K",
+     ylab="Total within-clusters sum of squares")
+```
+
+```{r}
+kmeans.ani(rescale_subscribermodel[2:3], 3)
+kmeans.ani(rescale_subscribermodel[3:4], 3)
+kmeans.ani(rescale_subscribermodel[4:5], 3)
+```
+
+To cluster the customers into manageable groups of customers so that Roomba can start its new Roomba subscription model, I used k-means clustering with the dataset containing Recency, Frequency and Moneary values of customers. Firstly, I used Elbow method to identity the number of clusters. From the plot, we can see that 3 is a good choice. Then I used k-means to cluster the customoers. As the result shows above, there are three colours (black, green, red) in the plots, which means it forms 3 clusters.
