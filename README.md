@@ -38,7 +38,7 @@ Project 2: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZ
  - Segmented 3,643 customers into 3 key groups (loyal subscribers, new buyers, one-time buyers) by performing K-Means & Hierarchical Clustering on Recency, Frequency, and Monetary (RFM) values, improving targeted marketing campaigns.
  - Optimized marketing decision-making by visualizing review sentiment using word clouds, allowing brands to identify common customer pain points and areas for product improvement.
 
-Project 3: Home Equity Loan Risk Analysis | R
+Project 3: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Home-Equity-Loan-Risk-Analysis)
  - Developed a predictive model for home equity loan defaults, improving classification accuracy by 15% (AUC ~0.95) by implementing Random Forest, Gradient Boosting, and Logistic Regression on a 5,960-row dataset.
  - Reduced RMSE by 20% in loss prediction by implementing Decision Trees, Poisson Regression, and Random Forest models, optimizing loan risk assessment for financial institutions.
  - Enhanced feature engineering by performing PCA and t-SNE dimensionality reduction, improving model interpretability and clustering customers into five distinct risk groups based on financial behavior.
