@@ -1,4 +1,4 @@
-# Employee Attrition Prediction Using Machine Learning
+# Employee Attrition Prediction Using Machine Learning (Python)
 
 ## 🚀 Project Overview  
 This project analyzes **employee attrition** using machine learning techniques to uncover key factors influencing employee turnover. Using IBM's HR dataset, I applied **data preprocessing, feature engineering, and supervised learning models** to predict attrition with high accuracy.  
