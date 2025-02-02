@@ -1,11 +1,12 @@
 # Data Scientist
 
 ### Professional Summary
- - Data Scientist with 3+ years of experience leveraging ML to enhance fraud detection (8x boost), forecasting (12% error reduction), and automation (22% efficiency gain). Proficient in Python, R, SQL, Tableau, and SAS. 
+ - Data Scientist with 3+ years of experience in machine learning, predictive analytics, and automation, specializing in fraud detection, time-series forecasting, and process optimization. Passionate about solving complex problems with data-driven insights.
+ - Proficient in Python, R, SQL, SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
 
 ### SKILLS
  - Programming Language: R, Python, SQL, SAS
- - Machine Learning: Linear / Logistic Regression, SVM, Decision Tree, Random Forest, XG-Boost, KNN, Clustering (K-MEANS, DBSCAN), Time Series (Seasonal ARIMA).
+ - Machine Learning: Linear/Logistic Regression, SVM, Decision Tree, Random Forest, XG-Boost, KNN, Clustering (K-MEANS, DBSCAN), Time Series (Seasonal ARIMA).
  - Data Analysis: Hypothesis Testing, A/B Testing, EDA, ETL/ELT
  - Visualization: Tableau, Power BI
  - Languages: Mandarin Chinese (Native), English (Fluent)
