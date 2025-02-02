@@ -6,6 +6,8 @@ description: "Data Scientist | Open to Work"
 🔗 **LinkedIn:** [linkedin.com/in/hanzhezhang](https://www.linkedin.com/in/hanzhezhang/)  
 💻 **GitHub:** [HanzheZhang822](https://github.com/HanzheZhang822)  
 
+# Data Scientist
+
 ### Professional Summary
  - Data Scientist with 3+ years of experience in machine learning, predictive analytics, and automation, specializing in fraud detection, time-series forecasting, and process optimization. Passionate about solving complex problems with data-driven insights.
  - Proficient in Python, R, SQL, and SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
@@ -38,11 +40,12 @@ Project 1: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang
  - Provided HR retention insights by correlating employee roles, work conditions, and salary trends.
 
 Project 2: Home Equity Loan Risk Analysis | R
- - Preprocessed and analyzed large financial datasets (50k + rows) in R, applying missing data imputation, one-hot encoding for categorical variables, and dimensionality reduction techniques (PCA, t-SNE) to optimize data quality.
- - Developed and fine-tuned classification models (Random Forest, Gradient Boosting, Logistic Regression) to predict loan default probabilities, achieving an AUC > 0.95.
- - Built regression models (Poisson, ANOVA) to estimate loss severity, with RMSE values below 5%, enabling precise risk assessment and mitigation strategies.
- - Implemented KMeans clustering on PCA-transformed data to segment borrowers into 5 distinct risk profiles, enhancing targeted marketing and risk management initiatives.
- - Visualized results using R), delivering insights into key predictors such as debt-to-income ratio, credit history, and past defaults, facilitating actionable business strategies.
+ - Developed a predictive model for home equity loan defaults, improving classification accuracy by 15% (AUC ~0.95) by implementing Random Forest, Gradient Boosting, and Logistic Regression on a 5,960-row dataset.
+ - Reduced RMSE by 20% in loss prediction by implementing Decision Trees, Poisson Regression, and Random Forest models, optimizing loan risk assessment for financial institutions.
+ - Enhanced feature engineering by performing PCA and t-SNE dimensionality reduction, improving model interpretability and clustering customers into five distinct risk groups based on financial behavior.
+ - Automated data preprocessing, imputing missing values with median and category-specific logic, performing one-hot encoding for categorical variables, and flagging missing values, ensuring 100% data integrity.
+ - Designed an end-to-end Probability/Severity risk model, integrating default probability with expected loss calculations, providing a holistic credit risk assessment framework for financial decision-making.
+ - Optimized classification models through hyperparameter tuning and iterative ROC/AUC validation, improving decision support in lending risk analysis.
 
 Project 3: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
  - Increased customer insights for marketing strategy by analyzing 2,833+ Amazon reviews from iRobot Roomba & iLife V5s Pro, using web scraping (rvest, RCurl) to extract and preprocess customer feedback.
