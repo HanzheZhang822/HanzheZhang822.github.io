@@ -1,28 +1,3 @@
-# Data Scientist
-
-### Professional Summary
- - Data Scientist with 3+ years of experience in machine learning, predictive analytics, and automation, specializing in fraud detection, time-series forecasting, and process optimization. Passionate about solving complex problems with data-driven insights.
- - Proficient in Python, R, SQL, and SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
-
-### SKILLS
- - Programming Language: R, Python, SQL, SAS
- - Machine Learning: Linear/Logistic Regression, SVM, Decision Tree, Random Forest, XG-Boost, KNN, Clustering (K-MEANS, DBSCAN), Time Series (Seasonal ARIMA).
- - Data Analysis: Hypothesis Testing, A/B Testing, EDA, ETL/ELT
- - Visualization: Tableau, Power BI
- - Languages: Mandarin Chinese (Native), English (Fluent)
-
-### Work Experience
-Data Analyst @ Web Union Solution  (10/2020 - 08/2022)
- - Improved machine learning model accuracy by 15% by cleaning and normalizing 1M+ rows of electricity consumption data using Python and SQL, improving fraud detection.
- - Increased electricity theft detection efficiency by 8x by deploying ensemble models with Logistic Regression, Random Forest and XGBoost, reducing revenue losses.
- - Reduced peak-load forecast errors by 12% by operationalizing Seasonal ARIMA time-series models in collaboration with engineering teams.
- - Decreased anomaly resolution time by 22% by designing an interactive Tableau dashboard, enabling real-time tracking of theft patterns and financial impact.
-
-Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
- - Boosted campaign ROI by 12% by segmenting 85K+ customers with K-Means clustering in Python.
- - Reduced manual reporting time by 8 hours per month by automating campaign performance reporting in Python, streamlining marketing analytics.
- - Enabled data-driven marketing decisions by building SQL-driven dashboards to track customer engagement trends.
-
 ### Projects
 Project 1: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
  - Improved attrition prediction accuracy to 88.9% by analyzing 1,470 employee records, optimizing HR decision-making.
@@ -46,9 +21,3 @@ Project 3: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang82
  - Enhanced feature engineering by applying PCA and t-SNE, reducing data dimensionality by 40%, improving model interpretability, and clustering borrowers into five risk segments based on financial behavior.
  - Designed an end-to-end Probability/Severity risk model, integrating logistic regression and regression trees to quantify both default risk and financial impact, aiding in credit risk decision-making.
  - Automated the entire modeling workflow, making the project fully reproducible and scalable, reducing manual effort in financial risk assessments.
-
-### Education
- - M.S., Information Studies | Trine University (01/2024 – 12/2025)
- - Post Master’s Advanced Certificate, Data Science | Monroe College (09/2022 – 08/2023)
- - M.S., Business Analytics	| Rochester Institute of Technology (08/2018 – 08/2019)
- - B.S., Applied Mathematics & Statistics / B.S., Economics | Stony Brook University (08/2012 – 12/2016)
