@@ -24,21 +24,21 @@ Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
  - Enabled data-driven marketing decisions by building SQL-driven dashboards to track customer engagement trends.
 
 ### Projects
-[Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
+Project 1: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
  - Improved attrition prediction accuracy to 88.9% by analyzing 1,470 employee records, optimizing HR decision-making.
  - Processed 35 features via data cleaning, encoding, and scaling, reducing model training time by 30%.
  - Identified top 5 attrition factors (age, salary, job satisfaction, work-life balance, and commute distance) using feature importance analysis.
  - Enhanced model performance by 12% by fine-tuning Logistic Regression, KNN, and Random Forest, selecting optimal hyperparameters.
  - Provided HR retention insights by correlating employee roles, work conditions, and salary trends.
 
-Home Equity Loan Risk Analysis | R
+Project 2: Home Equity Loan Risk Analysis | R
  - Preprocessed and analyzed large financial datasets (50k + rows) in R, applying missing data imputation, one-hot encoding for categorical variables, and dimensionality reduction techniques (PCA, t-SNE) to optimize data quality.
  - Developed and fine-tuned classification models (Random Forest, Gradient Boosting, Logistic Regression) to predict loan default probabilities, achieving an AUC > 0.95.
  - Built regression models (Poisson, ANOVA) to estimate loss severity, with RMSE values below 5%, enabling precise risk assessment and mitigation strategies.
  - Implemented KMeans clustering on PCA-transformed data to segment borrowers into 5 distinct risk profiles, enhancing targeted marketing and risk management initiatives.
  - Visualized results using R), delivering insights into key predictors such as debt-to-income ratio, credit history, and past defaults, facilitating actionable business strategies.
 
-[Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
+Project 3: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
  - Increased customer insights for marketing strategy by analyzing 2,833+ Amazon reviews from iRobot Roomba & iLife V5s Pro, using web scraping (rvest, RCurl) to extract and preprocess customer feedback.
  - Improved sentiment trend analysis by correlating review ratings with sentiment scores, identifying that 2-star reviews had lower sentiment scores than 1-star reviews, revealing unexpected customer dissatisfaction patterns.
  - Enhanced product feature analysis by applying Part-of-Speech (POS) tagging and RAKE topic modeling, uncovering that Roomba reviews emphasized pet-friendliness while iLife V5s reviews focused on affordability & weak mopping performance.
