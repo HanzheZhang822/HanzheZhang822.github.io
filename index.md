@@ -35,16 +35,16 @@ Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
 
 ### Projects
 Project 1: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
-•	Increased attrition prediction accuracy to 88.9% using Logistic Regression, KNN, and Random Forest.
-•	Identified top 5 attrition drivers, guiding HR retention strategies and workforce.
+ - Increased attrition prediction accuracy to 88.9% using Logistic Regression, KNN, and Random Forest.  
+ - Identified top 5 attrition drivers, guiding HR retention strategies and workforce.  
 
 Project 2: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Home-Equity-Loan-Risk-Analysis)
-•	Improved loan default classification accuracy by 15% (AUC ~0.95) using Random Forest & Gradient Boosting.
-•	Applied PCA & t-SNE, reducing dimensionality by 40% for risk segmentation.
+ - Improved loan default classification accuracy by 15% (AUC ~0.95) using Random Forest & Gradient Boosting.  
+ - Applied PCA & t-SNE, reducing dimensionality by 40% for risk segmentation.  
 
 Project 3: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
-•	Extracted 2,833+ reviews using web scraping and applied sentiment analysis to improve product marketing.
-•	Segmented 3,643 customers using K-Means Clustering, enhancing targeted marketing strategies.
+ - Extracted 2,833+ reviews using web scraping and applied sentiment analysis to improve product marketing.  
+ - Segmented 3,643 customers using K-Means Clustering, enhancing targeted marketing strategies.  
 
 ### Education
  - M.S., Information Studies | Trine University (01/2024 – 12/2025)
