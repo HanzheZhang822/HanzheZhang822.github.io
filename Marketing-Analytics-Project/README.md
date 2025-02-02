@@ -24,15 +24,15 @@ This project applies **text mining, sentiment analysis, and clustering** to anal
 📌 **Sentiment Analysis Trends:**
 - **Overall, positive reviews correlate strongly with higher star ratings.**
 - **However, 2-star reviews for iLife V5s had a lower sentiment than 1-star reviews**, indicating **greater disappointment at 2 stars.**
-- **Sentiment scores fluctuated over time**, especially for iLife V5s. 
+- **Sentiment scores fluctuated over time**, especially for iLife V5s.  
 📌 **Word Cloud Analysis:**
 - The word **"price" appeared frequently in iLife V5s reviews**, reflecting a price-conscious customer base.
-- The words **"pet" and "dog" were dominant in Roomba reviews**, showing alignment with their pet-friendly marketing. 
+- The words **"pet" and "dog" were dominant in Roomba reviews**, showing alignment with their pet-friendly marketing.  
 📌 **Customer Segmentation Findings:**
 - Identified **three major customer groups**:
   - **Loyal subscribers** (high frequency, high monetary value).
   - **New buyers** (recent purchases, low frequency).
-  - **One-time buyers** (high recency, low frequency). 
+  - **One-time buyers** (high recency, low frequency).  
 ## 🔍 Business Insights  
 📌 **Common Customer Complaints & Feature Requests:**
 - **Roomba reviews frequently mentioned battery life and navigation issues.**
