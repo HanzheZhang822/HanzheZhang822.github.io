@@ -39,12 +39,13 @@ Project 2: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZ
  - Optimized marketing decision-making by visualizing review sentiment using word clouds, allowing brands to identify common customer pain points and areas for product improvement.
 
 Project 3: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Home-Equity-Loan-Risk-Analysis)
- - Developed a predictive model for home equity loan defaults, improving classification accuracy by 15% (AUC ~0.95) by implementing Random Forest, Gradient Boosting, and Logistic Regression on a 5,960-row dataset.
+ - Developed a predictive model for home equity loan defaults, improving classification accuracy by 15% (AUC ~0.95) using Random Forest, Gradient Boosting, and Logistic Regression on a 5,960-row dataset.
+ - Engineered a robust data preprocessing pipeline, ensuring 100% data integrity by imputing missing values, encoding categorical variables, and normalizing features.
+ - Built and validated classification models, comparing Decision Trees (Gini vs. Entropy) and iteratively optimizing models through ROC/AUC tuning, leading to a 10% boost in predictive performance.
  - Reduced RMSE by 20% in loss prediction by implementing Decision Trees, Poisson Regression, and Random Forest models, optimizing loan risk assessment for financial institutions.
- - Enhanced feature engineering by performing PCA and t-SNE dimensionality reduction, improving model interpretability and clustering customers into five distinct risk groups based on financial behavior.
- - Automated data preprocessing, imputing missing values with median and category-specific logic, performing one-hot encoding for categorical variables, and flagging missing values, ensuring 100% data integrity.
- - Designed an end-to-end Probability/Severity risk model, integrating default probability with expected loss calculations, providing a holistic credit risk assessment framework for financial decision-making.
- - Optimized classification models through hyperparameter tuning and iterative ROC/AUC validation, improving decision support in lending risk analysis.
+ - Enhanced feature engineering by applying PCA and t-SNE, reducing data dimensionality by 40%, improving model interpretability, and clustering borrowers into five risk segments based on financial behavior.
+ - Designed an end-to-end Probability/Severity risk model, integrating logistic regression and regression trees to quantify both default risk and financial impact, aiding in credit risk decision-making.
+ - Automated the entire modeling workflow, making the project fully reproducible and scalable, reducing manual effort in financial risk assessments.
 
 ### Education
  - M.S., Information Studies | Trine University (01/2024 – 12/2025)
