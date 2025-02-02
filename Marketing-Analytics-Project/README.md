@@ -1,4 +1,4 @@
-# 📊 Marketing Analytics: Amazon Review Sentiment & Customer Segmentation  
+# 📊 Marketing Analytics: Amazon Review Sentiment & Customer Segmentation  (R)
 
 ## 🚀 Project Overview  
 This project applies **text mining, sentiment analysis, and clustering** to analyze robotic vacuum cleaner reviews and segment customers for a **subscription model**. Using **Amazon reviews** and **customer transaction data**, we extract insights to help businesses optimize marketing strategies.
