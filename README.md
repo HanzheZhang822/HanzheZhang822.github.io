@@ -37,7 +37,7 @@ Home Equity Loan Risk Analysis | R
  - Implemented KMeans clustering on PCA-transformed data to segment borrowers into 5 distinct risk profiles, enhancing targeted marketing and risk management initiatives.
  - Visualized results using R), delivering insights into key predictors such as debt-to-income ratio, credit history, and past defaults, facilitating actionable business strategies.
 
-[Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketiing-Analytics-Project)
+[Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
  - Increased customer insights for marketing strategy by analyzing 2,833+ Amazon reviews from iRobot Roomba & iLife V5s Pro, using web scraping (rvest, RCurl) to extract and preprocess customer feedback.
  - Improved sentiment trend analysis by correlating review ratings with sentiment scores, identifying that 2-star reviews had lower sentiment scores than 1-star reviews, revealing unexpected customer dissatisfaction patterns.
  - Enhanced product feature analysis by applying Part-of-Speech (POS) tagging and RAKE topic modeling, uncovering that Roomba reviews emphasized pet-friendliness while iLife V5s reviews focused on affordability & weak mopping performance.
