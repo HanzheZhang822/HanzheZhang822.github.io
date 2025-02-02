@@ -16,9 +16,9 @@ description: "Data Scientist | Open to Work"
  - Proficient in Python, R, SQL, and SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
 
 ### SKILLS
- - Programming Language: R, Python, SQL, SAS
- - Machine Learning: Linear/Logistic Regression, SVM, Decision Tree, Random Forest, XG-Boost, KNN, Clustering (K-MEANS, DBSCAN), Time Series (Seasonal ARIMA).
- - Data Analysis: Hypothesis Testing, A/B Testing, EDA, ETL/ELT
+ - Programming Languages: R, Python, SQL, SAS
+ - Machine Learning: Logistic Regression, Decision Trees, Random Forest, XGBoost, Gradient Boosting, SVM, K-Means, DBSCAN, Time Series (ARIMA), PCA, t-SNE
+ - Data Analysis: Feature Engineering, Data Cleaning, Imputation, ETL/ELT, Hypothesis Testing, A/B Testing, Risk Modeling, Clustering
  - Visualization: Tableau, Power BI
  - Languages: Mandarin Chinese (Native), English (Fluent)
 
