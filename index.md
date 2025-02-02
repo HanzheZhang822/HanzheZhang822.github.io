@@ -48,12 +48,10 @@ Project 2: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZ
 
 Project 3: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Home-Equity-Loan-Risk-Analysis)
  - Developed a predictive model for home equity loan defaults, improving classification accuracy by 15% (AUC ~0.95) using Random Forest, Gradient Boosting, and Logistic Regression on a 5,960-row dataset.
- - Engineered a robust data preprocessing pipeline, ensuring 100% data integrity by imputing missing values, encoding categorical variables, and normalizing features.
- - Built and validated classification models, comparing Decision Trees (Gini vs. Entropy) and iteratively optimizing models through ROC/AUC tuning, leading to a 10% boost in predictive performance.
- - Reduced RMSE by 20% in loss prediction by implementing Decision Trees, Poisson Regression, and Random Forest models, optimizing loan risk assessment for financial institutions.
- - Enhanced feature engineering by applying PCA and t-SNE, reducing data dimensionality by 40%, improving model interpretability, and clustering borrowers into five risk segments based on financial behavior.
- - Designed an end-to-end Probability/Severity risk model, integrating logistic regression and regression trees to quantify both default risk and financial impact, aiding in credit risk decision-making.
- - Automated the entire modeling workflow, making the project fully reproducible and scalable, reducing manual effort in financial risk assessments.s.
+ - Engineered a data preprocessing pipeline, ensuring 100% data integrity by imputing missing values, encoding categorical variables, and normalizing features, which improved model readiness by 15%.
+ - Optimized classification and regression models, reducing loan loss prediction RMSE by 20% using Decision Trees, Poisson Regression, and Random Forest, while iterating on ROC/AUC tuning for model performance improvements.
+ - Applied PCA and t-SNE for feature engineering, reducing data dimensionality by 40%, clustering borrowers into five distinct risk groups, and improving loan risk segmentation.
+ - Designed and automated a Probability/Severity risk model, integrating logistic regression and regression trees to quantify default probability and financial impact, streamlining financial risk assessments.
 
 ### Education
  - M.S., Information Studies | Trine University (01/2024 – 12/2025)
