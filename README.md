@@ -47,5 +47,5 @@ Home Equity Loan Risk Analysis | R
 ### Education
  - M.S., Information Studies | Trine University (01/2024 – 12/2025)
  - Post Master’s Advanced Certificate, Data Science | Monroe College (09/2022 – 08/2023)
- - M.S., Business Analytics	| Rochester Institute of Technology	Rochester (08/2018 – 08/2019)
+ - M.S., Business Analytics	| Rochester Institute of Technology (08/2018 – 08/2019)
  - B.S., Applied Mathematics & Statistics / B.S., Economics | Stony Brook University (08/2012 – 12/2016)
