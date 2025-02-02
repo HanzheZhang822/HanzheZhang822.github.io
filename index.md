@@ -24,10 +24,10 @@ description: "Data Scientist | Open to Work"
 
 ### Work Experience
 Data Analyst @ Web Union Solution  (10/2020 - 08/2022)
- - Improved machine learning model accuracy by 15% by cleaning and normalizing 1M+ rows of electricity consumption data using Python and SQL, improving fraud detection.
- - Increased electricity theft detection efficiency by 8x by deploying ensemble models with Logistic Regression, Random Forest and XGBoost, reducing revenue losses.
- - Reduced peak-load forecast errors by 12% by operationalizing Seasonal ARIMA time-series models in collaboration with engineering teams.
- - Decreased anomaly resolution time by 22% by designing an interactive Tableau dashboard, enabling real-time tracking of theft patterns and financial impact.
+ - Increased data accuracy by 20% and reduced manual processing by 90% by automating data cleaning and preprocessing in Python and SQL for 1M+ records, ensuring high-quality data for analytics.
+ - Improved electricity theft detection by 8x, preventing $1.5M+ in annual losses, by developing Time Series ARIMA models and machine learning algorithms (Random Forest, XGBoost, SVM) to detect abnormal consumption patterns.
+ - Enhanced fraud detection efficiency by 65% by implementing predictive analytics models, enabling targeted investigations and reducing false positive cases.
+ - Developed an interactive Tableau dashboard used by 50+ daily users, providing real-time insights into fraud patterns, geographic trends, and financial risks, improving operational decision-making.
 
 Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
  - Boosted campaign ROI by 12% by segmenting 85K+ customers with K-Means clustering in Python.
