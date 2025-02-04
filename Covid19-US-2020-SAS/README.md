@@ -22,11 +22,10 @@ This project analyzes **800K+ rows of U.S. COVID-19 data from 2020** using **SAS
 ### 📂 Project Structure  
 ```
 /covid19-us-2020-sas
-│── data/                      # Raw & cleaned datasets  
 │   ├── us_counties_covid19_daily.csv  # Raw COVID-19 dataset  
 │── script/                   # SAS script  
 │   ├── Covid19-US-2020-SAS.sas  # Main SAS script  
-│── reports/                    # Generated reports & charts  
+│── report/                    # Generated reports & charts  
 │── README.md                   # Project documentation  
 ```
 
