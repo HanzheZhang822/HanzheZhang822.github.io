@@ -41,8 +41,8 @@ git clone https://github.com/your-github-username/covid19-us-2020-sas.git
 3️⃣ Open **SAS** and run `scripts/Covid19-US-2020-SAS.sas`.  
 
 ### 📈 Example Visualization  
-https://github.com/HanzheZhang822/HanzheZhang822.github.io/blob/main/Covid19-US-2020-SAS/report/1.png
-
+![COVID-19 Monthly New Cases for Each State](https://github.com/user-attachments/assets/c0c43a9c-9345-4db6-9872-7e93a9e84b07)
+![COVID-19 Monthly Death Rate Trending for Each State](https://github.com/user-attachments/assets/c26e881c-edb7-4023-ade8-82267b39f1be)
 
 
 ## 📬 Connect with Me  
