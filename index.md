@@ -16,10 +16,9 @@ description: "Data Scientist | Open to Work"
  - Proficient in Python, R, SQL, and SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
 
 ### SKILLS
- - Programming Languages: R, Python, SQL, SAS
- - Machine Learning: Logistic Regression, Decision Trees, Random Forest, XGBoost, Gradient Boosting, SVM, K-Means, DBSCAN, Time Series (ARIMA), PCA, t-SNE
- - Data Analysis: Feature Engineering, Data Cleaning, Imputation, ETL/ELT, Hypothesis Testing, A/B Testing, Risk Modeling, Clustering
- - Visualization: Tableau, Power BI
+ - Programming Language: R, Python, SQL, SAS
+ - Machine Learning: Linear / Logistic Regression, SVM, Decision Tree, Random Forest, XG-Boost, KNN, Clustering (K-MEANS, DBSCAN), Time Series (Seasonal ARIMA).
+ - Data Analysis: Hypothesis Testing, A/B Testing, EDA, ETL
  - Languages: Mandarin Chinese (Native), English (Fluent)
 
 ### Work Experience
@@ -34,15 +33,19 @@ Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
  - Reduced manual reporting time by 8 hours per month by automating campaign performance reporting in Python, streamlining marketing analytics.
 
 ### Projects
-Project 1: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
+Project 1: [COVID-19 US 2020: Data Processing & Trend Analysis | SAS](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Covid19-US-2020-SAS)
+ - Processed 800K+ COVID-19 records in SAS, improving data accuracy by 20%.
+ - Automated analysis with PROC SQL, tracking cases and death rates for public health insights.
+
+Project 2: [Employee Attrition Analysis | Python](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/IBM-HR-Employee-Attrition-Analysis)
  - Increased attrition prediction accuracy to 88.9% using Logistic Regression, KNN, and Random Forest.  
  - Identified top 5 attrition drivers, guiding HR retention strategies and workforce.  
 
-Project 2: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Home-Equity-Loan-Risk-Analysis)
+Project 3: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Home-Equity-Loan-Risk-Analysis)
  - Improved loan default classification accuracy by 15% (AUC ~0.95) using Random Forest & Gradient Boosting.  
  - Applied PCA & t-SNE, reducing dimensionality by 40% for risk segmentation.  
 
-Project 3: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
+Project 4: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
  - Extracted 2,833+ reviews using web scraping and applied sentiment analysis to improve product marketing.  
  - Segmented 3,643 customers using K-Means Clustering, enhancing targeted marketing strategies.  
 
