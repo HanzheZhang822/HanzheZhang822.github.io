@@ -32,7 +32,8 @@ This project analyzes **800K+ rows of U.S. COVID-19 data from 2020** using **SAS
 ### 🚀 How to Run the Code  
 1️⃣ Clone this repository:  
 ```bash
-git clone https://github.com/your-github-username/covid19-us-2020-sas.git
+   git clone https://github.com/HanzheZhang822/HanzheZhang822.github.io.git
+   cd HanzheZhang822.github.io/Covid19-US-2020-SAS
 ```
 2️⃣ Download the dataset from Kaggle:  
 - **[COVID-19 in USA Dataset](https://www.kaggle.com/datasets/sudalairajkumar/covid19-in-usa)**  
