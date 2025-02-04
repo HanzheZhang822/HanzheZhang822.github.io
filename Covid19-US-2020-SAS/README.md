@@ -41,7 +41,8 @@ git clone https://github.com/your-github-username/covid19-us-2020-sas.git
 3️⃣ Open **SAS** and run `scripts/Covid19-US-2020-SAS.sas`.  
 
 ### 📈 Example Visualization  
-*(Include a sample chart or summary report screenshot here.)*  
+https://github.com/HanzheZhang822/HanzheZhang822.github.io/blob/main/Covid19-US-2020-SAS/report/1.png
+
 
 
 ## 📬 Connect with Me  
