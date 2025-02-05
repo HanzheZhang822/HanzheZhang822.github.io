@@ -19,18 +19,18 @@ description: "Data Scientist | Open to Work"
  - Programming Language: R, Python, SQL, SAS
  - Machine Learning: Linear / Logistic Regression, SVM, Decision Tree, Random Forest, XG-Boost, KNN, Clustering (K-MEANS, DBSCAN), Time Series (Seasonal ARIMA).
  - Data Analysis: Hypothesis Testing, A/B Testing, EDA, ETL
- - Languages: Mandarin Chinese (Native), English (Fluent)
+ - Languages: Mandarin Chinese (Native)
 
 ### Work Experience
 Data Analyst @ Web Union Solution  (10/2020 - 08/2022)
- - Increased data accuracy by 20% and reduced manual processing by 90% by automating data cleaning and preprocessing in Python and SQL for 1M+ records, ensuring high-quality data for analytics.
- - Improved electricity theft detection by 8x, preventing $1.5M+ in annual losses, by developing Time Series ARIMA models and machine learning algorithms (Random Forest, XGBoost, SVM) to detect abnormal consumption patterns.
- - Enhanced fraud detection efficiency by 65% by implementing predictive analytics models, enabling targeted investigations and reducing false positive cases.
- - Developed an interactive Tableau dashboard used by 50+ daily users, providing real-time insights into fraud patterns, geographic trends, and financial risks, improving operational decision-making.
+ - Preprocessed 1M+ electricity consumption records using Python & SQL (extraction, filtering, imputation, outlier detection), boosting data accuracy by 20%, improving ML model performance by 15%, and cutting manual tasks by 90%.
+ - Deployed SVM, Random Forest, and XGBoost models to predict power consumption intervals and detect theft, increasing detection efficiency by 8x and preventing $1.5M+ in annual losses.
+ - Implemented seasonal ARIMA modeling to compare users’ historical consumption against neighborhood patterns, reducing false positives by 65% and enabling proactive fraud investigation.
+ - Designed Tableau dashboards for real-time insights, adopted by 80+ daily users with 50K+ hits in a year, driving data-driven decisions across teams.
 
 Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
- - Boosted campaign ROI by 12% by segmenting 15K+ customers with K-Means clustering in Python.
- - Reduced manual reporting time by 8 hours per month by automating campaign performance reporting in Python, streamlining marketing analytics.
+ - Extracted and analyzed marketing data with Python, improving audience targeting and raising ROI by 15%.
+ - Built ML models (Logistic Regression, K-Means) and automated reporting in Python, boosting campaign performance by 20% and saving 8+ hours per month.
 
 ### Projects
 Project 1: [COVID-19 US 2020: Data Processing & Trend Analysis | SAS](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Covid19-US-2020-SAS)
