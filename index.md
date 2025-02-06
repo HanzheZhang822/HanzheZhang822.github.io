@@ -1,18 +1,16 @@
 ---
 title: Hanzhe Zhang
-description: "Data Scientist | Open to Work"
+description: "Data Analyst | Open to Work"
 ---
 # Hanzhe Zhang  
-**Data Scientist | Open to Work**  
+**Data Analyst | Open to Work**  
 
 📫 **Contact:** [zachzhang1992@gmail.com](mailto:zachzhang1992@gmail.com)  
 🔗 **LinkedIn:** [linkedin.com/in/hanzhezhang](https://www.linkedin.com/in/hanzhezhang/)  
 💻 **GitHub:** [HanzheZhang822](https://github.com/HanzheZhang822)  
 
-# Data Scientist
-
 ### Professional Summary
- - Data Scientist with 3+ years of experience in machine learning, predictive analytics, and automation, specializing in fraud detection, time-series forecasting, and process optimization. Passionate about solving complex problems with data-driven insights.
+ - Data Analyst with 3+ years of experience in machine learning, predictive analytics, and automation, specializing in fraud detection, time-series forecasting, and process optimization. Passionate about solving complex problems with data-driven insights.
  - Proficient in Python, R, SQL, and SAS, with expertise in ML algorithms, statistical modeling, and data visualization.
 
 ### SKILLS
