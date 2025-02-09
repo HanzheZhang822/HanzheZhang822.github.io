@@ -21,7 +21,7 @@ description: "Data Analyst | Open to Work"
 
 ### Work Experience
 Data Analyst @ Web Union Solution  (10/2020 - 08/2022)
- - Leveraged Python and SQL to extract and preprocess over 100K electricity consumption records by applying filtering, imputation, and outlier detection techniques, resulting in a 15% improvement in data quality.
+ - Extracted and preprocessed over 100K electricity consumption records using Python and SQL by applying filtering, imputation, and outlier detection techniques, resulting in a 15% improvement in data quality.
  - Collaborated with cross-functional teams to streamline data processing pipelines using Python automation methods, reducing manual processing tasks by 70% and boosting machine learning model performance by 10%.
  - Designed and deployed predictive models (SVM, Random Forest, XGBoost, and Seasonal ARIMA) to forecast consumption intervals and detect electricity theft, increasing detection efficiency by 3× and reducing false positives by 30%, which contributed to preventing potential annual losses exceeding $500K.
  - Leveraged Matplotlib and Seaborn to create data visualizations (time series plots, histograms, and box plots) that uncovered seasonal consumption trends and outliers, enhancing actionable insights for fraud prevention by 15%.
