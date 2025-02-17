@@ -45,7 +45,10 @@ Project 3: [Home Equity Loan Risk Analysis | R](https://github.com/HanzheZhang82
 
 Project 4: [Marketing Analysis on Amazon Product | R](https://github.com/HanzheZhang822/HanzheZhang822.github.io/tree/main/Marketing-Analytics-Project)
  - Extracted 2,833+ reviews using web scraping and applied sentiment analysis to improve product marketing.  
- - Segmented 3,643 customers using K-Means Clustering, enhancing targeted marketing strategies.  
+ - Segmented 3,643 customers using K-Means Clustering, enhancing targeted marketing strategies.
+
+### Certificate
+ - [SAS Certified Specialist: Base Programming Using SAS 9.4](https://cp.certmetrics.com/SAS/en/public/verify/credential/7af83e92fa2547b897e820779f06e17e)
 
 ### Education
  - M.S., Information Studies | Trine University (01/2024 – Present)
