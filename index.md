@@ -22,18 +22,18 @@ description: "Data Analyst | Open to Work"
  - [SAS Certified Specialist: Base Programming Using SAS 9.4](https://cp.certmetrics.com/SAS/en/public/verify/credential/7af83e92fa2547b897e820779f06e17e)
 
 ### Work Experience
-Data Analyst @ Web Union Solution  (10/2020 - 08/2022)
+**Data Analyst** @ Web Union Solution  (10/2020 - 08/2022)
  - Extracted, cleaned, and processed large datasets from multi clients using Python & SQL, optimizing ETL workflows and improving data quality by 15%. 
  - Built and deployed ML models for classification, forecasting, and segmentation tasks, improving analytical accuracy across multiple projects.
  - Conducted statistical analysis and EDA to support business insights and decision-making.
  - Collaborated with cross-functional teams to streamline data operations, enhance reporting capabilities, and provide actionable insights.
-# KEY PROJECT:
-Electricity Theft Detection & Forecasting | Python, SQL, Machine Learning
+
+Key Project: **Electricity Theft Detection & Forecasting** | Python, SQL, Machine Learning
  - Optimized 100K+ electricity consumption records using filtering, imputation, and outlier detection, improving data accuracy by 15%.
  - Developed predictive models (XGBoost, Random Forest, ARIMA) to detect fraudulent electricity consumption, increasing detection efficiency by 3x and reducing false positives by 30%, preventing $500K+ in annual losses.
  - Automated data processing pipelines, reducing manual workload by 70% and improving fraud prevention insights by 15%.
 
-Digital Marketing Analyst (Intern) @ Web Union Solution  (01/2020 - 09/2020)
+**Digital Marketing Analyst (Intern)** @ Web Union Solution  (01/2020 - 09/2020)
  - Collected, cleaned and analyzed marketing data using Python & SQL, identifying trends that improved audience targeting and boosting ROI by 15%.
  - Automated reporting workflows, reducing data processing time by 8+ hours per month and improving campaign performance by 20%.
 
