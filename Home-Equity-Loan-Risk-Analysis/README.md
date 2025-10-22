@@ -15,7 +15,7 @@ This project focused on loan default risk modeling using Machine Learning in R. 
   - **Decision Trees (`rpart`)**  
   - **Random Forest (`randomForest`)**  
   - **Gradient Boosting (`gbm`)**  
-  - **Logistic Regression (`glm`)**  
+  - **Logistic Regression (`glm`)**
 ✔ **Model Validation:** AUC Score, RMSE, Cross-Validation (`caret`, `pROC`)  
 ✔ **Feature Importance Analysis:** Identified **top risk factors** influencing loan default  
 
