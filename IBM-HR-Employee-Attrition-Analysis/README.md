@@ -16,6 +16,7 @@ This project analyzes **employee attrition** using machine learning techniques t
 - **Logistic Regression** *(Best Model - 88.9% Accuracy)*  
 - **K-Nearest Neighbors (KNN)**  
 - **Random Forest**  
+
 ✔ **Model Evaluation:** Accuracy, Precision, Recall, ROC-AUC  
 
 ## 🔥 Key Results & Insights  
