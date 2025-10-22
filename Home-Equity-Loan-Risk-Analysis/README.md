@@ -52,8 +52,6 @@ This project focused on loan default risk modeling using Machine Learning in R. 
 📂 hmeq-loan-risk  
  ├─📝 README.md                          # Project Documentation  
  ├─📂 data                               # Dataset Files  
- │   ├─ HMEQ_Loss.csv                     # Raw dataset  
- │   ├─ HMEQ_Scrubbed.csv                  # Processed dataset  
  │   └─ HMEQ_Dictionary.txt                # Data dictionary  
  └─📂 scripts                            # R scripts for data processing & modeling  
  │   ├─ Home-Equity-Loan-Risk-Analysis.R   # Main analysis script  
